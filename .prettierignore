@@ -1,0 +1,10 @@
+node_modules
+package.json
+package-lock.yaml
+dist
+lint-*
+vite.config.ts
+README.md 
+.prettierrc
+eslint.config.js 
+tsconfig.json 
