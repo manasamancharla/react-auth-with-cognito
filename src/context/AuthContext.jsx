@@ -8,6 +8,7 @@ import {
   resetPassword,
   confirmResetPassword,
   resendSignUpCode,
+  signInWithRedirect,
 } from "aws-amplify/auth";
 
 const AuthContext = createContext(null);
@@ -64,6 +65,10 @@ export function AuthProvider({ children }) {
     await resendSignUpCode({ username: email });
   };
 
+  const handleGoogleSignIn = async () => {
+    await signInWithRedirect({ provider: "Google" });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -76,6 +81,7 @@ export function AuthProvider({ children }) {
         forgotPassword: handleForgotPassword,
         confirmPassword: handleConfirmResetPassword,
         resendCode: handleResendCode,
+        googleSignIn: handleGoogleSignIn, 
       }}
     >
       {children}

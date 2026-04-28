@@ -3,7 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Input } from "../ui/Input";
 
 export function Login({ onSwitch, onForgotPassword }) {
-  const { signIn } = useAuth();
+  const { signIn, googleSignIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -136,6 +136,7 @@ export function Login({ onSwitch, onForgotPassword }) {
           <button
             className="w-full py-3 border border-gray-200 bg-white hover:bg-gray-50 rounded-xl
                        text-sm font-semibold text-gray-700 flex items-center justify-center gap-3 transition-colors"
+            onClick={googleSignIn}
           >
             <svg width="18" height="18" viewBox="0 0 18 18">
               <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" />
